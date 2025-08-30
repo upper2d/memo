@@ -70,6 +70,7 @@ class TodoApp {
             completed: false,
             dueDate: dueDate,
             priority: priority,
+            important: false,
             createdAt: new Date().toISOString()
         };
 
@@ -102,6 +103,18 @@ class TodoApp {
             this.updateStats();
             
             const message = todo.completed ? '할일을 완료했습니다' : '할일을 다시 시작합니다';
+            this.showNotification(message, 'success');
+        }
+    }
+
+    toggleImportance(id) {
+        const todo = this.todos.find(t => t.id === id);
+        if (todo) {
+            todo.important = !todo.important;
+            this.saveTodos();
+            this.renderTodos();
+            
+            const message = todo.important ? '중요한 할일로 표시되었습니다' : '중요 표시가 해제되었습니다';
             this.showNotification(message, 'success');
         }
     }
@@ -144,7 +157,8 @@ class TodoApp {
             'all': '전체',
             'pending': '진행중',
             'completed': '완료',
-            'overdue': '지연'
+            'overdue': '지연',
+            'important': '중요'
         };
         this.showNotification(`${filterNames[filter]} 할일을 보여드립니다`, 'info');
     }
@@ -163,6 +177,8 @@ class TodoApp {
                     !todo.completed && 
                     new Date(todo.dueDate) < today
                 );
+            case 'important':
+                return this.todos.filter(todo => todo.important);
             default:
                 return this.todos;
         }
@@ -216,7 +232,7 @@ class TodoApp {
         const statusIcon = todo.completed ? 'fa-check-circle' : isOverdue ? 'fa-exclamation-triangle' : 'fa-clock';
 
         return `
-            <div class="todo-item ${todo.completed ? 'completed' : ''} ${isOverdue ? 'overdue' : ''} ${todo.priority === 'high' ? 'high-priority' : ''}">
+            <div class="todo-item ${todo.completed ? 'completed' : ''} ${isOverdue ? 'overdue' : ''} ${todo.priority === 'high' ? 'high-priority' : ''} ${todo.important ? 'important' : ''}">
                 <div class="todo-header">
                     <input type="checkbox" 
                            class="todo-checkbox" 
@@ -225,6 +241,11 @@ class TodoApp {
                     <span class="todo-text ${todo.completed ? 'completed' : ''}">
                         <i class="fas ${statusIcon}"></i> ${this.escapeHtml(todo.text)}
                     </span>
+                    <button class="importance-toggle ${todo.important ? 'important' : ''}" 
+                            onclick="todoApp.toggleImportance(${todo.id})" 
+                            title="${todo.important ? '중요 표시 해제' : '중요 표시'}">
+                        ${todo.important ? '⭐' : '☆'}
+                    </button>
                     <div class="todo-actions">
                         <button class="todo-btn edit-btn" onclick="todoApp.editTodo(${todo.id})" title="수정">
                             <i class="fas fa-edit"></i>

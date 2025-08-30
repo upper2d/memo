@@ -410,6 +410,73 @@ body::before {
     background: var(--secondary);
 }
 
+.todo-item.important {
+    background: rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+}
+
+.todo-item.important::before {
+    background: #ffd700;
+}
+
+.todo-item.important .todo-header::after {
+    content: '⭐';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    animation: starGlow 2s ease-in-out infinite alternate;
+}
+
+.todo-item.important .todo-header {
+    position: relative;
+}
+
+@keyframes starGlow {
+    0% {
+        transform: scale(1) rotate(0deg);
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+    100% {
+        transform: scale(1.1) rotate(5deg);
+        text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.importance-toggle {
+    background: none;
+    border: none;
+    color: #ffd700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+.importance-toggle:hover {
+    background: rgba(255, 215, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.importance-toggle.important {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.importance-toggle:not(.important) {
+    color: #666;
+    opacity: 0.6;
+}
+
+.importance-toggle:not(.important):hover {
+    color: #ffd700;
+    opacity: 1;
+}
+
 .todo-header {
     display: flex;
     align-items: center;
