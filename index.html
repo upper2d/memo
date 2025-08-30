@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - 할일 관리 시스템</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-stream"></i> TaskFlow</h1>
+            <p class="subtitle">체계적이고 효율적인 할일 관리 시스템</p>
+        </header>
+
+        <div class="todo-input-section">
+            <div class="input-group">
+                <input type="text" id="todoInput" placeholder="새로운 할일을 입력하세요..." maxlength="100">
+                <input type="date" id="dueDate" value="">
+                <select id="priority">
+                    <option value="low">낮음</option>
+                    <option value="medium" selected>보통</option>
+                    <option value="high">높음</option>
+                </select>
+                <button id="addBtn" class="add-btn">
+                    <i class="fas fa-plus"></i> 추가
+                </button>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">전체</button>
+            <button class="filter-btn" data-filter="pending">진행중</button>
+            <button class="filter-btn" data-filter="completed">완료</button>
+            <button class="filter-btn" data-filter="overdue">지연</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalCount">0</span>
+                <span class="stat-label">전체 할일</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="pendingCount">0</span>
+                <span class="stat-label">진행중</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completedCount">0</span>
+                <span class="stat-label">완료됨</span>
+            </div>
+        </div>
+
+        <div class="todo-list" id="todoList">
+            <!-- 할일 항목들이 여기에 동적으로 추가됩니다 -->
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-tasks"></i>
+            <h3>할일이 없습니다</h3>
+            <p>새로운 할일을 추가하여 생산성을 높여보세요</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
