@@ -19,12 +19,12 @@
     --bg-primary: #000000;
     --bg-secondary: #0a0a0a;
     --bg-tertiary: #1a1a1a;
-    --border: #333333;
-    --border-light: #404040;
+    --border: #ffffff;
+    --border-light: #ffffff;
     --shadow: rgba(0, 0, 0, 0.5);
     --shadow-light: rgba(0, 0, 0, 0.3);
     --glass: rgba(26, 26, 26, 0.9);
-    --glass-border: rgba(255, 107, 53, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.3);
 }
 
 body {
@@ -114,11 +114,11 @@ body::before {
     backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
     padding: 40px;
-    border-radius: 32px;
+    border-radius: 7px;
     margin-bottom: 40px;
     box-shadow: 
         0 32px 64px var(--shadow),
-        inset 0 1px 0 rgba(255, 107, 53, 0.1);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -149,7 +149,7 @@ body::before {
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--border);
     padding: 20px 28px;
-    border-radius: 20px;
+    border-radius: 7px;
     font-size: 1.1rem;
     font-weight: 500;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -174,7 +174,7 @@ body::before {
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--border);
     padding: 20px 24px;
-    border-radius: 20px;
+    border-radius: 7px;
     font-size: 1rem;
     font-weight: 500;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -196,7 +196,7 @@ body::before {
     color: white;
     border: none;
     padding: 20px 36px;
-    border-radius: 20px;
+    border-radius: 7px;
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
@@ -243,7 +243,7 @@ body::before {
     background: var(--glass);
     backdrop-filter: blur(30px);
     color: var(--text-secondary);
-    border-radius: 50px;
+    border-radius: 7px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 600;
@@ -296,7 +296,7 @@ body::before {
     backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
     padding: 32px 24px;
-    border-radius: 24px;
+    border-radius: 7px;
     text-align: center;
     color: var(--text-primary);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -358,7 +358,7 @@ body::before {
     backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
     padding: 32px;
-    border-radius: 24px;
+    border-radius: 7px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -446,7 +446,7 @@ body::before {
 .todo-btn {
     padding: 12px 20px;
     border: none;
-    border-radius: 16px;
+    border-radius: 7px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 0.95rem;
@@ -487,7 +487,7 @@ body::before {
 
 .todo-priority {
     padding: 8px 16px;
-    border-radius: 24px;
+    border-radius: 7px;
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -497,19 +497,19 @@ body::before {
 .priority-low {
     background: rgba(16, 185, 129, 0.15);
     color: #10b981;
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .priority-medium {
     background: rgba(255, 107, 53, 0.15);
     color: #ff6b35;
-    border: 1px solid rgba(255, 107, 53, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .priority-high {
     background: rgba(239, 68, 68, 0.15);
     color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .todo-due-date {
@@ -526,7 +526,7 @@ body::before {
     background: var(--glass);
     backdrop-filter: blur(30px);
     border: 1px solid var(--glass-border);
-    border-radius: 32px;
+    border-radius: 7px;
 }
 
 .empty-state i {
@@ -559,13 +559,13 @@ body::before {
 
 ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.3);
-    border-radius: 5px;
+    border-radius: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(135deg, var(--secondary), var(--accent));
-    border-radius: 5px;
-    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
