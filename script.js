@@ -31,6 +31,11 @@ class TodoApp {
         document.getElementById('todoInput').addEventListener('focus', () => {
             this.addPulseEffect();
         });
+
+        // 날짜 변경 시 요일 표시 업데이트
+        document.getElementById('dueDate').addEventListener('change', (e) => {
+            this.updateWeekdayDisplay(e.target.value);
+        });
     }
 
     addWelcomeMessage() {
@@ -52,6 +57,19 @@ class TodoApp {
     setDefaultDate() {
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('dueDate').value = today;
+        this.updateWeekdayDisplay(today);
+    }
+
+    updateWeekdayDisplay(dateString) {
+        const weekdayDisplay = document.getElementById('weekdayDisplay');
+        if (dateString) {
+            const date = new Date(dateString);
+            const weekdays = ['일', '월', '화', '수', '목', '금', '토'];
+            const weekday = weekdays[date.getDay()];
+            weekdayDisplay.textContent = `(${weekday})`;
+        } else {
+            weekdayDisplay.textContent = '';
+        }
     }
 
     addTodo() {
@@ -220,7 +238,8 @@ class TodoApp {
         const dueDate = new Date(todo.dueDate);
         const formattedDate = dueDate.toLocaleDateString('ko-KR', {
             month: 'short',
-            day: 'numeric'
+            day: 'numeric',
+            weekday: 'short'
         });
 
         const priorityLabels = {

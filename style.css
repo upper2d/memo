@@ -138,9 +138,35 @@ body::before {
     left: 100%;
 }
 
+.date-input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    height: 60px;
+}
+
+.weekday-display {
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 20px 12px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    min-width: 60px;
+    text-align: center;
+    white-space: nowrap;
+    height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .input-group {
     display: grid;
-    grid-template-columns: 2.5fr 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr auto;
     gap: 24px;
     align-items: center;
 }
@@ -155,6 +181,8 @@ body::before {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 20px var(--shadow-light);
     color: var(--text-primary);
+    height: 60px;
+    box-sizing: border-box;
 }
 
 .input-group input[type="text"]:focus {
@@ -169,7 +197,29 @@ body::before {
     color: var(--text-muted);
 }
 
-.input-group input[type="date"],
+.date-input-group input[type="date"] {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    border-radius: 7px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    color: var(--text-primary);
+    height: 60px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.date-input-group input[type="date"]:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.8);
+    border-color: var(--secondary);
+    box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
+    transform: translateY(-2px);
+}
+
 .input-group select {
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--border);
@@ -180,9 +230,10 @@ body::before {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 20px var(--shadow-light);
     color: var(--text-primary);
+    height: 60px;
+    box-sizing: border-box;
 }
 
-.input-group input[type="date"]:focus,
 .input-group select:focus {
     outline: none;
     background: rgba(0, 0, 0, 0.8);
@@ -207,6 +258,8 @@ body::before {
     box-shadow: 0 8px 32px rgba(255, 107, 53, 0.3);
     position: relative;
     overflow: hidden;
+    height: 60px;
+    box-sizing: border-box;
 }
 
 .add-btn::before {

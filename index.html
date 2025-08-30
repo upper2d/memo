@@ -18,7 +18,10 @@
         <div class="todo-input-section">
             <div class="input-group">
                 <input type="text" id="todoInput" placeholder="새로운 할일을 입력하세요..." maxlength="100">
-                <input type="date" id="dueDate" value="">
+                <div class="date-input-group">
+                    <input type="date" id="dueDate" value="">
+                    <span id="weekdayDisplay" class="weekday-display"></span>
+                </div>
                 <select id="priority">
                     <option value="low">낮음</option>
                     <option value="medium" selected>보통</option>
